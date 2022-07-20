@@ -1,0 +1,64 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+body
+{
+    background: linear-gradient(to right , #FF9D9C,#FFCEA6);
+}
+.Main
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.Music-App
+{
+    background-color: white;
+    width: 50vh;
+    height: 80vh;
+    border-radius: 5px;
+    padding: 5px;
+}
+.App-Name
+{
+    background-color: black;
+    width: fit-content;
+    color: white;
+    padding: 5px 5px;
+    border-radius: 5px;
+}
+.App-Name img
+{
+    height: 20px;
+    width: 20px;
+}
+
+/* ======================= */
+
+.Music-Data
+{
+    margin: 2rem 0px 1rem 0px;
+    text-align: center;
+}
+.Music-Name , .Singer-Name
+{
+    padding: .5rem 0px;
+}
+/* ======================= */
+.Image
+{
+    display: flex;
+    justify-content: center;
+}
+.Image img
+{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
