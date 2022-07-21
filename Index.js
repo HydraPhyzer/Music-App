@@ -9,8 +9,11 @@ let SingerName=document.querySelector('.Singer-Name');
 
 let Running=document.querySelector('.Running');
 let Total=document.querySelector('.Total');
+let B=document.querySelector('.B');
+let A=document.querySelector('.A');
 let SongIndex=0;
 let isPlaying=false;
+let Box=0;
 
 Pause.style.display = "none";
 
@@ -42,8 +45,6 @@ Play.addEventListener("click", () => {
     Anime.classList.add("Anime")
     Music.play();
     isPlaying=true;
-
-    ManageTime()
 })
 Pause.addEventListener("click", () => {
     Play.style.display = "block";
@@ -52,7 +53,7 @@ Pause.addEventListener("click", () => {
     Music.pause();
     isPlaying=false
 })
-Next.addEventListener("click" , ()=>
+Next.addEventListener("click" , NextSong=()=>
 {
     SongIndex=(SongIndex+1)%Object.length;
     MusicName.textContent=Object[SongIndex].SongName;
@@ -64,7 +65,6 @@ Next.addEventListener("click" , ()=>
     if(isPlaying)
     Music.play();
     
-    ManageTime();
 });
 Prev.addEventListener("click" , ()=>
 {
@@ -82,23 +82,37 @@ Prev.addEventListener("click" , ()=>
     if(isPlaying)
     Music.play();
 
-    ManageTime();
 });
 
-let ManageTime=()=>
+Music.addEventListener("timeupdate" , (Event)=>
 {
-    Music.addEventListener("timeupdate" , (Event)=>
-    {
-        let TtlTime=Event.srcElement.duration;
-        let Min=Math.floor(TtlTime/60);
-        let Sec=Math.floor(TtlTime%60);
-        if(TtlTime)
+        let {currentTime,duration}=Event.srcElement;
+        console.log(Music.currentTime)
+
+        // Music.currentTime=100
+
+        let Min=Math.floor(duration/60);
+        let Sec=Math.floor(duration%60);
+        if(duration)
         Total.textContent=`${Min}:${Sec}`
 
-        let CurrentTime=Event.srcElement.currentTime;
-        let CMin=Math.floor(CurrentTime/60);
-        let CSec=Math.floor(CurrentTime%60);
-        if(CurrentTime)
+        let CMin=Math.floor(currentTime/60);
+        let CSec=Math.floor(currentTime%60);
+        if(currentTime)
         Running.textContent=`${CMin}:${CSec}`
-    });
-};
+
+        let Wid=(currentTime/duration)*100;
+        B.style.width=`${Wid}%`;
+});
+
+Music.addEventListener("ended" , ()=>
+{
+    NextSong();
+});
+
+// A.addEventListener("click" , (Event)=>
+// {
+//     let Widt=(Event.offsetX/Event.srcElement.clientWidth)*100;
+
+//     Music.currentTime=(Widt/100)*Music.duration;
+// });

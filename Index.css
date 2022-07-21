@@ -117,7 +117,7 @@ body
 }
 .A
 {
-    background-color: black;
+    background-color: rgb(122, 122, 122);
     width: 100%;
     height: 5px;
     border-radius: 10px;
@@ -126,7 +126,7 @@ body
 .B
 {
     position: absolute;
-    width: 25%;
+    width: 0%;
     height: 100%;
     border-radius: inherit;
     background-color: #FF9D9C;
