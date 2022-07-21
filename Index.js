@@ -118,3 +118,9 @@ A.addEventListener("click" , (Event)=>
     let Val=(Widt/100)*Music.duration;
     Seek(Val)
 });
+
+document.querySelector('.Range').addEventListener("change" , (Event)=>
+{
+    let Vol=Event.target.value;
+    Music.volume=Vol/100
+});

@@ -131,6 +131,27 @@ body
     border-radius: inherit;
     background-color: #FF9D9C;
 }
+.Range
+{
+    width: 80%;
+    text-decoration: none;
+    margin: 0px 10px;
+
+    appearance: none;
+    height: 5px;
+    background: #FF9D9C;
+    border-radius: 5px;
+}
+.Volume
+{
+    display: flex;
+    align-items: center;
+    padding: 10px 0px;
+}
+.Volume i
+{
+    color: #FF9D9C;
+}
 @keyframes Harry
 {
     0%
