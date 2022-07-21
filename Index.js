@@ -86,10 +86,7 @@ Prev.addEventListener("click" , ()=>
 
 Music.addEventListener("timeupdate" , (Event)=>
 {
-        let {currentTime,duration}=Event.srcElement;
-        console.log(Music.currentTime)
-
-        // Music.currentTime=100
+        let {currentTime,duration}=Music;
 
         let Min=Math.floor(duration/60);
         let Sec=Math.floor(duration%60);
@@ -110,9 +107,14 @@ Music.addEventListener("ended" , ()=>
     NextSong();
 });
 
-// A.addEventListener("click" , (Event)=>
-// {
-//     let Widt=(Event.offsetX/Event.srcElement.clientWidth)*100;
+let Seek=(Val)=>
+{
+    Music.currentTime=Val;
+}
+A.addEventListener("click" , (Event)=>
+{
+    let Widt=(Event.offsetX/Event.srcElement.clientWidth)*100;
 
-//     Music.currentTime=(Widt/100)*Music.duration;
-// });
+    let Val=(Widt/100)*Music.duration;
+    Seek(Val)
+});

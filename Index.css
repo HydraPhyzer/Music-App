@@ -142,3 +142,11 @@ body
         transform: rotate(360deg);
     }
 }
+
+@media(max-width:530px)
+{
+    .Music-App
+    {
+        width: 90vw;
+    }
+}
