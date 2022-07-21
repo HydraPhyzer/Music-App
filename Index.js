@@ -6,6 +6,9 @@ let Next = document.querySelector('.Next');
 let Prev = document.querySelector('.Prev');
 let MusicName=document.querySelector('.Music-Name');
 let SingerName=document.querySelector('.Singer-Name');
+
+let Running=document.querySelector('.Running');
+let Total=document.querySelector('.Total');
 let SongIndex=0;
 let isPlaying=false;
 
@@ -39,6 +42,8 @@ Play.addEventListener("click", () => {
     Anime.classList.add("Anime")
     Music.play();
     isPlaying=true;
+
+    ManageTime()
 })
 Pause.addEventListener("click", () => {
     Play.style.display = "block";
@@ -58,6 +63,8 @@ Next.addEventListener("click" , ()=>
 
     if(isPlaying)
     Music.play();
+    
+    ManageTime();
 });
 Prev.addEventListener("click" , ()=>
 {
@@ -74,4 +81,24 @@ Prev.addEventListener("click" , ()=>
 
     if(isPlaying)
     Music.play();
+
+    ManageTime();
 });
+
+let ManageTime=()=>
+{
+    Music.addEventListener("timeupdate" , (Event)=>
+    {
+        let TtlTime=Event.srcElement.duration;
+        let Min=Math.floor(TtlTime/60);
+        let Sec=Math.floor(TtlTime%60);
+        if(TtlTime)
+        Total.textContent=`${Min}:${Sec}`
+
+        let CurrentTime=Event.srcElement.currentTime;
+        let CMin=Math.floor(CurrentTime/60);
+        let CSec=Math.floor(CurrentTime%60);
+        if(CurrentTime)
+        Running.textContent=`${CMin}:${CSec}`
+    });
+};
