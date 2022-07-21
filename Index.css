@@ -88,6 +88,18 @@ body
     animation-duration: .3s;
     animation-iteration-count: infinite;
 }
+.Controls
+{
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0px;
+    padding: 1rem 0px;
+    grid-gap: 3rem;
+}
+.Controls i
+{
+    font-size: x-large;
+}
 @keyframes Harry
 {
     0%
@@ -103,4 +115,3 @@ body
         transform: scale(1);
     }
 }
-

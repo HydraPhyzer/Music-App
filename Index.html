@@ -42,9 +42,39 @@
 
             <!-- ========================= -->
 
-            <audio controls><source src="/Songs/Music1.mp3"></audio>
+            <audio src="/Songs/Music1.mp3" ></audio>
+
+            <!-- ========================= -->
+
+            <div class="Controls">
+                    <i class="fa-solid fa-circle-chevron-left"></i>
+                    <i class="fa-solid fa-circle-play"></i>
+                    <i class="fa-solid fa-circle-pause"></i>
+                    <i class="fa-solid fa-circle-chevron-right"></i>
+            </div>
         </div>
     </div>
-</body>
+    <!-- =============== -->
+    <script>
+        let Music=document.querySelector('audio');
+        let Play=document.querySelector('.fa-circle-play');
+        let Pause=document.querySelector('.fa-circle-pause');
+        Pause.style.display="none";
 
+        Play.addEventListener("click",()=>
+        {
+            Pause.style.display="block";
+            Play.style.display="none";
+            Music.play();
+        })
+        Pause.addEventListener("click",()=>
+        {
+            Play.style.display="block";
+            Pause.style.display="none";
+            Music.pause();
+        })
+
+        
+    </script>
+</body>
 </html>
