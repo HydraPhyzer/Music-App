@@ -20,7 +20,7 @@ body
 {
     background-color: white;
     width: 50vh;
-    height: 80vh;
+    height:fit-content;
     border-radius: 5px;
     padding: 5px;
 }
